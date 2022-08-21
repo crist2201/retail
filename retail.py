@@ -59,9 +59,13 @@ df_prod = df_discrepancy.groupby("Retail_Product_Level1Name").sum()
 # UI
 container = st.container()
 container.title("INVENTORY DISCREPANCY")
+container.write("Relevant data")
 val1, val2, val3 = container.columns(3)
 val1.metric(label="SOH INVENTORY", value=sqty)
 val2.metric(label="MOJIX INVENTORY", value=cqty)
 val3.metric(label="DIFFERENCE", value=diff)
+container.write("Add the necessary columns to the table")
+options = container.multiselect(
+    'What columns do you want to display?', my_cols_selected)
 
 container.bar_chart(data=df_prod)
