@@ -54,7 +54,7 @@ diff = cqty-sqty
 
 container = st.container()
 container.title("INVENTORY DISCREPANCY")
-val1, val2, val3 = container.columns(3)
-#val1.metric(label="SOH INVENTORY", variable=sqty)
-#val2.metric(label="MOJIX INVENTORY", variable=cqty)
-#val3.metric(label="DIFFERENCE", variable=diff)
+val1, val2, val3 = st.columns(3)
+val1.metric(label="SOH INVENTORY", variable=sqty)
+val2.metric(label="MOJIX INVENTORY", variable=cqty)
+val3.metric(label="DIFFERENCE", variable=diff)
