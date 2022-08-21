@@ -62,6 +62,7 @@ def create_chart():
     df_products = df_discrepancy[data_display].groupby(
         "Retail_Product_Level1Name").sum()
     container.bar_chart(df_products)
+    data_display = ['Retail_Product_Level1Name']
 
 
 # UI
@@ -76,8 +77,9 @@ val3.metric(label="DIFFERENCE", value=diff)
 data_showed = container.multiselect(
     "Pick Data to be showed", ['Retail_SOHQTY', 'Retail_CCQTY'])
 
-data_display = ['Retail_Product_Level1Name',
-                'Retail_SOHQTY', 'Retail_CCQTY']
+data_display = ['Retail_Product_Level1Name']
+
+data_display.append(data_showed)
 
 container.button(label='Create chart', on_click=create_chart)
 
