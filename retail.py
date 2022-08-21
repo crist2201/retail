@@ -69,5 +69,6 @@ val3.metric(label="DIFFERENCE", value=diff)
 
 data_showed = container.radio(
     "Pick Data to be showed", display_columns)
+print(data_showed)
 #container.text('Columns selected:' + ' ' + options)
 container.bar_chart(df_products)
