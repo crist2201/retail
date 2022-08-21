@@ -80,8 +80,9 @@ data_showed = container.multiselect(
 data_display = ['Retail_Product_Level1Name']
 
 data_display.append(data_showed)
+container.write(data_display)
 
-container.button(label='Create chart', on_click=create_chart)
+#container.button(label='Create chart', on_click=create_chart)
 
 
 #container.text('Columns selected:' + ' ' + options)
