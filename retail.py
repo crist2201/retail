@@ -52,10 +52,16 @@ cqty = df_discrepancy['Retail_CCQTY'].sum()
 # Diferencia total
 diff = cqty-sqty
 
+# Productos por su nombre
+df_prod = df_discrepancy.groupby("Retail_Product_Level1Name").sum()
 
+
+# UI
 container = st.container()
 container.title("INVENTORY DISCREPANCY")
-val1, val2, val3 = st.columns(3)
+val1, val2, val3 = container.columns(3)
 val1.metric(label="SOH INVENTORY", value=sqty)
 val2.metric(label="MOJIX INVENTORY", value=cqty)
 val3.metric(label="DIFFERENCE", value=diff)
+
+container.bar_chart(data=df_prod)
