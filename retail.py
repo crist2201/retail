@@ -79,3 +79,7 @@ data_showed = container.multiselect(
     "Pick Inventory", ['Retail_SOHQTY', 'Retail_CCQTY'])
 data_showed.append('Retail_Product_Level1Name')
 container.button(label='Create chart', on_click=create_chart)
+
+
+container.text('Link to git repo:')
+container.text('https://github.com/crist2201/retail')
