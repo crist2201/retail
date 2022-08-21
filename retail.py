@@ -1,3 +1,4 @@
+
 import pandas as pd
 import streamlit as st
 
@@ -55,6 +56,6 @@ diff = cqty-sqty
 container = st.container()
 container.title("INVENTORY DISCREPANCY")
 val1, val2, val3 = st.columns(3)
-val1.metric(label="SOH INVENTORY", variable=sqty)
-val2.metric(label="MOJIX INVENTORY", variable=cqty)
-val3.metric(label="DIFFERENCE", variable=diff)
+val1.metric(label="SOH INVENTORY", value=sqty)
+val2.metric(label="MOJIX INVENTORY", value=cqty)
+val3.metric(label="DIFFERENCE", value=diff)
