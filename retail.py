@@ -52,7 +52,10 @@ cqty = df_discrepancy['Retail_CCQTY'].sum()
 diff = cqty-sqty
 
 # Productos por su nombre
-df_products = df_discrepancy[['Retail_Product_Level1Name', 'Retail_SOHQTY', 'Retail_CCQTY']].groupby(
+display_columns = ['Retail_Product_Level1Name',
+                   'Retail_SOHQTY', 'Retail_CCQTY']
+
+df_products = df_discrepancy[display_columns].groupby(
     "Retail_Product_Level1Name").sum()
 
 # UI
@@ -65,6 +68,6 @@ val2.metric(label="MOJIX INVENTORY", value=cqty)
 val3.metric(label="DIFFERENCE", value=diff)
 
 data_showed = container.radio(
-    "Pick Data to be showed", my_cols_selected)
+    "Pick Data to be showed", display_columns)
 #container.text('Columns selected:' + ' ' + options)
 container.bar_chart(df_products)
