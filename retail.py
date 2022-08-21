@@ -71,5 +71,5 @@ val3.metric(label="DIFFERENCE", value=diff)
 container.write("Add the necessary columns to the table")
 options = container.multiselect(
     'What columns do you want to display?', my_cols_selected)
-container.text('Columns selected:' + ' ' + options)
+#container.text('Columns selected:' + ' ' + options)
 container.button(label="Create Table", on_click=show_table(options))
