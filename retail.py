@@ -70,6 +70,7 @@ val3.metric(label="DIFFERENCE", value=diff)
 container.write("Add the necessary columns to the table")
 options = container.multiselect(
     'What columns do you want to display?', my_cols_selected)
-container.write('Columns selected: ' + options)
+container.write('Columns selected: ')
+container.write(options)
 container.button(label="Create Table", on_click=show_table)
 container.bar_chart(data=df_prod)
