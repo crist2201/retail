@@ -67,8 +67,8 @@ val1.metric(label="SOH INVENTORY", value=sqty)
 val2.metric(label="MOJIX INVENTORY", value=cqty)
 val3.metric(label="DIFFERENCE", value=diff)
 
-data_showed = container.radio(
-    "Pick Data to be showed", display_columns)
+data_showed = container.checkbox(
+    "Pick Data to be showed", 'Retail_SOHQTY', 'Retail_CCQTY')
 container.write(data_showed)
 #container.text('Columns selected:' + ' ' + options)
 container.bar_chart(df_products)
