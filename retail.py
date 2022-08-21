@@ -59,7 +59,7 @@ df_products = df_discrepancy[['Retail_Product_Level1Name',
 
 
 def create_chart():
-    container.write("Data Showed by Product Name")
+    container.header("DATA SHOWED BY PRODUCT NAME")
     df_products = df_discrepancy[data_showed].groupby(
         "Retail_Product_Level1Name").sum()
     container.bar_chart(df_products)
