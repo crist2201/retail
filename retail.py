@@ -77,8 +77,8 @@ val3.metric(label="DIFFERENCE", value=diff)
 data_showed = container.multiselect(
     "Pick Data to be showed", ['Retail_SOHQTY', 'Retail_CCQTY'])
 container.write(data_showed)
-data_display = data_showed.append('Retail_Product_Level1Name')
-container.write(data_display)
+data_showed.append('Retail_Product_Level1Name')
+container.write(data_showed)
 
 #container.button(label='Create chart', on_click=create_chart)
 
