@@ -63,6 +63,8 @@ def create_chart():
     df_products = df_discrepancy[data_showed].groupby(
         "Retail_Product_Level1Name").sum()
     container.bar_chart(df_products)
+    container.write('You can see the code here:')
+    container.text('https://github.com/crist2201/retail')
 
 
 # UI
@@ -79,7 +81,3 @@ data_showed = container.multiselect(
     "Pick Inventory", ['Retail_SOHQTY', 'Retail_CCQTY'])
 data_showed.append('Retail_Product_Level1Name')
 container.button(label='Create chart', on_click=create_chart)
-
-
-container.text('Link to git repo:')
-container.text('https://github.com/crist2201/retail')
