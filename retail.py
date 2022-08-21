@@ -1,3 +1,4 @@
+from cProfile import label
 import pandas as pd
 import streamlit as st
 
@@ -56,6 +57,13 @@ df_products = df_discrepancy[['Retail_Product_Level1Name',
                               'Retail_SOHQTY', 'Retail_CCQTY']].groupby(
     "Retail_Product_Level1Name").sum()
 
+
+def create_chart():
+    df_products = df_discrepancy[data_display].groupby(
+        "Retail_Product_Level1Name").sum()
+    container.bar_chart(df_products)
+
+
 # UI
 container = st.container()
 container.title("INVENTORY DISCREPANCY")
@@ -69,7 +77,8 @@ data_showed = container.multiselect(
     "Pick Data to be showed", ['Retail_SOHQTY', 'Retail_CCQTY'])
 
 data_display = data_showed.append("Retail_Product_Level1Name")
-df_products = df_discrepancy[data_display].groupby(
-    "Retail_Product_Level1Name").sum()
+
+container.button(label='Create chart', on_click=create_chart)
+
+
 #container.text('Columns selected:' + ' ' + options)
-container.bar_chart(df_products)
