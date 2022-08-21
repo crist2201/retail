@@ -1,4 +1,3 @@
-
 import pandas as pd
 import streamlit as st
 
@@ -56,6 +55,10 @@ diff = cqty-sqty
 df_prod = df_discrepancy.groupby("Retail_Product_Level1Name").sum()
 
 
+def show_table():
+    pass
+
+
 # UI
 container = st.container()
 container.title("INVENTORY DISCREPANCY")
@@ -67,5 +70,6 @@ val3.metric(label="DIFFERENCE", value=diff)
 container.write("Add the necessary columns to the table")
 options = container.multiselect(
     'What columns do you want to display?', my_cols_selected)
-
+container.write("Columns selected: ", options)
+container.button(label="Create Table", on_click=show_table)
 container.bar_chart(data=df_prod)
