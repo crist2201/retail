@@ -52,10 +52,8 @@ cqty = df_discrepancy['Retail_CCQTY'].sum()
 diff = cqty-sqty
 
 # Productos por su nombre
-display_columns = ['Retail_Product_Level1Name',
-                   'Retail_SOHQTY', 'Retail_CCQTY']
-
-df_products = df_discrepancy[display_columns].groupby(
+df_products = df_discrepancy[['Retail_Product_Level1Name',
+                              'Retail_SOHQTY', 'Retail_CCQTY']].groupby(
     "Retail_Product_Level1Name").sum()
 
 # UI
@@ -69,6 +67,9 @@ val3.metric(label="DIFFERENCE", value=diff)
 
 data_showed = container.multiselect(
     "Pick Data to be showed", ['Retail_SOHQTY', 'Retail_CCQTY'])
-container.write(data_showed)
+
+data_display = data_showed.append("Retail_Product_Level1Name")
+df_products = df_discrepancy[data_display].groupby(
+    "Retail_Product_Level1Name").sum()
 #container.text('Columns selected:' + ' ' + options)
 container.bar_chart(df_products)
