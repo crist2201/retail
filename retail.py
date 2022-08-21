@@ -68,8 +68,7 @@ val1, val2, val3 = container.columns(3)
 val1.metric(label="SOH INVENTORY", value=sqty)
 val2.metric(label="MOJIX INVENTORY", value=cqty)
 val3.metric(label="DIFFERENCE", value=diff)
-container.write("Add the necessary columns to the table")
-options = container.multiselect(
-    'What columns do you want to display?', my_cols_selected)
+
+data_showed = container.radio(
+    "Pick Data to be showed", my_cols_selected)
 #container.text('Columns selected:' + ' ' + options)
-container.button(label="Create Table", on_click=show_table(options))
